@@ -9,11 +9,11 @@ const routes = [
     path: '/',
     component: () => import('@/views/app'),
     redirect: '/app/dashboards',
-    beforeEnter: AuthRequired,
+    //beforeEnter: AuthRequired,
     children: [{
       path: 'app/dashboards',
       component: () => import('@/views/app/dashboards'),
-      beforeEnter: AuthRequired,
+      //beforeEnter: AuthRequired,
       redirect: '/app/dashboards/index',
       children: [{
         path: 'index',
