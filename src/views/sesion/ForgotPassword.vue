@@ -18,7 +18,7 @@
                       :error-messages="erroresEmail"
                       @blur="$v.email.$touch()"
                       :append-icon="'mdi-email'"
-                      color="accent"
+                      color="primary"
                       outlined />
                   </v-form>
                 </div>
