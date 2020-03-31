@@ -20,7 +20,7 @@
                       :type="text"
                       :append-icon="'mdi-account'"
                       color="primary"
-                      outlined/>
+                      outlined />
 
                     <v-text-field
                       label="Correo Electronico"
@@ -54,13 +54,11 @@
                         <template v-slot:label>
                           <div class="font-weight-medium caption">
                             Acepto los
-                            <v-tooltip bottom>
-                              <template v-slot:activator="{ on }">
-                                <a target="_blank" href="http://vuetifyjs.com" @click.stop v-on="on">
-                                  Terminos y Condiciones
-                                </a>
-                              </template>
-                            </v-tooltip>
+                            <template>
+                              <a target="_blank" href="http://vuetifyjs.com" @click.stop v-on="on">
+                                Terminos y Condiciones
+                              </a>
+                            </template>
                           </div>
                         </template>
                       </v-switch>

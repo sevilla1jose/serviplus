@@ -18,7 +18,7 @@
                       :error-messages="erroresEmail"
                       @blur="$v.formulario.email.$touch()"
                       :append-icon="'mdi-email'"
-                      color="accent"
+                      color="primary"
                       outlined />
 
                     <v-text-field
@@ -29,7 +29,7 @@
                       :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
                       :type="show ? 'text' : 'password'"
                       @click:append="show = !show"
-                      color="accent"
+                      color="primary"
                       outlined />
 
                   </v-form>
