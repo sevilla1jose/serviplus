@@ -9,17 +9,28 @@ const routes = [
     path: '/',
     component: () => import('@/views/app'),
     redirect: '/app/dashboards',
-    beforeEnter: AuthRequired,
-    children: [{
-      path: 'app/dashboards',
-      component: () => import('@/views/app/dashboards'),
-      beforeEnter: AuthRequired,
-      redirect: '/app/dashboards/index',
-      children: [{
-        path: 'index',
-        component: () => import('@/views/app/dashboards/Default')
-      }]
-    }]
+    //beforeEnter: AuthRequired,
+    children: [
+      {
+        path: 'app/dashboards',
+        component: () => import('@/views/app/dashboards'),
+        //beforeEnter: AuthRequired,
+        redirect: '/app/dashboards/index',
+        children: [
+          { path: 'index', component: () => import('@/views/app/dashboards/Default') }
+        ]
+      },
+      {
+        path: 'app/account',
+        component: () => import('@/views/app/account'),
+        //beforeEnter: AuthRequired,
+        redirect: '/app/account/profile',
+        children: [
+          { path: 'profile', component: () => import('@/views/app/account/Default') },
+          { path: 'setting', component: () => import('@/views/app/account/Default') }
+        ]
+      }
+    ]
   },
   {
     path: '/error',
