@@ -19,8 +19,8 @@
                       @blur="$v.fR.nombres.$touch()"
                       :type="text"
                       :append-icon="'mdi-account'"
-                      color="accent"
-                      outlined/>
+                      color="primary"
+                      outlined />
 
                     <v-text-field
                       label="Correo Electronico"
@@ -29,7 +29,7 @@
                       @blur="$v.fR.email.$touch()"
                       :type='email'
                       :append-icon="'mdi-email'"
-                      color="accent"
+                      color="primary"
                       outlined />
 
                     <v-text-field
@@ -40,18 +40,28 @@
                       :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
                       :type="show ? 'text' : 'password'"
                       @click:append="show = !show"
-                      color="accent"
+                      color="primary"
                       outlined />
 
                       <v-switch
                         v-model="fR.terminos"
                         :error-messages="erroresTerminos"
                         required
-                        @change="$v.fR.terminos.$touch()"
                         @blur="$v.fR.terminos.$touch()"
-                        color="accent"
-                        class="mx-2 mt-0 mb-0 pt-0"
-                        label="Acepto Terminos y Condiciones" />
+                        color="primary"
+                        class="mx-2 mt-0 mb-0 pt-0" >
+
+                        <template v-slot:label>
+                          <div class="font-weight-medium caption">
+                            Acepto los
+                            <template>
+                              <a target="_blank" href="http://vuetifyjs.com" @click.stop v-on="on">
+                                Terminos y Condiciones
+                              </a>
+                            </template>
+                          </div>
+                        </template>
+                      </v-switch>
                         
                   </v-form>
                 </div>
@@ -68,7 +78,6 @@
                   </v-btn>
                 </v-col>
                 </div>
-                
                 <div>
                   <v-row>
                     <v-col class="mt-0" cols="12" align="center">
@@ -202,8 +211,8 @@ export default {
     },
     erroresTerminos() {
       let errores = []
-      if (!this.$v.fR.nombres.$dirty) { return errores }
-      if (!this.$v.fR.nombres.required) { errores.push('Lee y Acepta los Terminos y Condiciones.') }
+      if (!this.$v.fR.terminos.$dirty) { return errores }
+      if (!this.$v.fR.terminos.required) { errores.push('Lee y Acepta los Terminos y Condiciones.') }
       return errores
     }
   }
