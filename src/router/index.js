@@ -9,12 +9,12 @@ const routes = [
     path: '/',
     component: () => import('@/views/app'),
     redirect: '/app/dashboards',
-    //beforeEnter: AuthRequired,
+    beforeEnter: AuthRequired,
     children: [
       {
         path: 'app/dashboards',
         component: () => import('@/views/app/dashboards'),
-        //beforeEnter: AuthRequired,
+        beforeEnter: AuthRequired,
         redirect: '/app/dashboards/index',
         children: [
           { path: 'index', component: () => import('@/views/app/dashboards/Default') }
@@ -23,7 +23,7 @@ const routes = [
       {
         path: 'app/account',
         component: () => import('@/views/app/account'),
-        //beforeEnter: AuthRequired,
+        beforeEnter: AuthRequired,
         redirect: '/app/account/profile',
         children: [
           { path: 'profile', component: () => import('@/views/app/account/Default') },
