@@ -1,14 +1,16 @@
 <template>
   <v-app :style="cssProps" class="intro">
     <v-content>
-      <v-container class="fill-height" fluid>
+      <v-container fluid>
         <v-row align="center" justify="center">
           <v-col cols="12" sm="8" md="4">
-            <v-card class="mx-auto" elevation="3" outlined>
+            <v-card class="mt-1" elevation="3" outlined>
               <v-card-text>
-                <div align="center" justify="center">
-                  <p><span class="headline font-weight-black">Restaurar Contrase&ntilde;a</span></p>
-                  <v-divider class="mt-0 mb-3"></v-divider>
+                <div class="mt-2 mb-4" align="center" justify="center">
+                  <v-img src="@/assets/img/logo.png" max-width="250" />
+                </div>
+                <div class="p-0 m-0" align="center" justify="center">
+                  <p><span class="title font-weight-black">Restaurar Contrase&ntilde;a</span></p>
                 </div>
                 <div class="mt-5">
                   <v-form>

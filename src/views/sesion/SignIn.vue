@@ -1,14 +1,16 @@
 <template>
   <v-app :style="cssProps" class="intro">
     <v-content>
-      <v-container class="fill-height" fluid>
+      <v-container fluid>
         <v-row align="center" justify="center">
           <v-col cols="12" sm="8" md="4">
-            <v-card class="mx-auto" elevation="3" outlined>
+            <v-card elevation="3" outlined>
               <v-card-text>
-                <div align="center" justify="center">
-                  <p><span class="headline font-weight-black">Crea una Cuenta</span></p>
-                  <v-divider class="mt-0 mb-3"></v-divider>
+                <div class="p-0 mt-2 mb-4" align="center" justify="center">
+                  <v-img src="@/assets/img/logo.png" max-width="250" />
+                </div>
+                <div class="p-0 m-0" align="center" justify="center">
+                  <p><span class="title font-weight-black">Crea una Cuenta</span></p>
                 </div>
                 <div>
                   <v-form>
@@ -62,7 +64,6 @@
                           </div>
                         </template>
                       </v-switch>
-                        
                   </v-form>
                 </div>
                 <div>

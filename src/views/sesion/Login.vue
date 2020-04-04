@@ -1,14 +1,16 @@
 <template>
   <v-app :style="cssProps" class="intro">
     <v-content>
-      <v-container class="fill-height" fluid>
+      <v-container fluid>
         <v-row align="center" justify="center">
           <v-col cols="12" sm="8" md="4">
-            <v-card class="mx-auto" elevation="3" outlined>
+            <v-card class="mt-1" elevation="3" outlined>
               <v-card-text>
-                <div align="center" justify="center">
-                  <p><span class="headline font-weight-black">Iniciar Sesi&oacute;n</span></p>
-                  <v-divider class="mt-0 mb-3"></v-divider>
+                <div class="mt-2 mb-4" align="center" justify="center">
+                  <v-img src="@/assets/img/logo.png" max-width="250" />
+                </div>
+                <div class="p-0 m-0" align="center" justify="center">
+                  <p><span class="title font-weight-black">Iniciar Sesi&oacute;n</span></p>
                 </div>
                 <div>
                   <v-form>
@@ -51,24 +53,22 @@
                       Ingresar
                   </v-btn>
                 </div>
-                <div align="end">
+                <div align="center" class="mt-4 mb-2">
                   <v-row>
-                    <v-col cols="6" sm="6">
+                    <v-col cols="12" lg="6" md="6" sm="6">
                       <v-btn 
                         depressed
-                        width="140px"
-                        class="mt-3 mb-2 me-2"
+                        block
                         color="#0062b3"
                         dark>
                         <v-icon dark left>mdi-facebook</v-icon>
                         Facebook
                       </v-btn>
                     </v-col>
-                    <v-col cols="6" sm="6">
+                    <v-col cols="12" lg="6" md="6" sm="6">
                       <v-btn
                         depressed
-                        width="140px"
-                        class="ma-3 ml-2 mr-12"
+                        block
                         color="#ea4335"
                         dark>
                         <v-icon dark left>mdi-google-plus</v-icon>
