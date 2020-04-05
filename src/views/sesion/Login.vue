@@ -111,7 +111,7 @@
 
 <script>
 import { required, email, minLength, maxLength } from 'vuelidate/lib/validators'
-import { firebase, auth } from '@/firebase'
+import { mapGetters, mapActions } from 'vuex'
 import { async } from 'q'
 
 export default {
@@ -143,36 +143,12 @@ export default {
     }
   },
   methods: {
+    ...mapActions(['login']),
     async ingresar() {
-      if (this.$v.formulario.$invalid) { return }
-      
-      try {
-        let cred = await auth.signInWithEmailAndPassword(
-          this.$v.formulario.email,
-          this.$v.formulario.password
-        )
-
-        alert('Usuario logeado')
-
-        this.$router.push({ name: 'home' })
-
-      } catch (error) {
-        alert(error)
-        switch (error.code) {
-          case 'auth/invalid-email':
-            alert('Correo electronico es invalido.')
-            break
-          case 'auth/user-not-found':
-            alert('Correo electronico no esta registrado.')
-            break
-          case 'auth/wrong-password':
-            alert('Contrasena es incorrecta.')
-            break
-          default:
-            alert('Ocurrio un error.')
-            break
-        }
-      }
+      if (this.$v.formulario.$invalid)
+        { return }
+        
+      await this.login({ email: this.formulario.email, password: this.formulario.password })
     },
     async ingresarFacebook () {
 
@@ -182,6 +158,7 @@ export default {
     }
   },
   computed: {
+    ...mapGetters(['currentUser', 'processing', 'error']),
     erroresEmail() {
       let errores = []
       if (!this.$v.formulario.email.$dirty) { return errores }
@@ -196,6 +173,34 @@ export default {
       if (!this.$v.formulario.password.minLength) { errores.push('Ingrese al menos 6 caracteres.') }
       if (!this.$v.formulario.password.maxLength) { errores.push('Ingrese maximo 15 caracteres.') }
       return errores
+    }
+  },
+  watch: {
+    currentUser (val) {
+      if (val && val.uid && val.uid.length > 0) {
+        setTimeout(() => {
+          this.$router.push('/')
+        }, 500)
+      }
+    },
+    processing (val) {
+
+    },
+    error (val) {
+      switch (val.code) {
+        case 'auth/invalid-email':
+          alert('Correo electronico es invalido.')
+          break
+        case 'auth/user-not-found':
+          alert('Correo electronico no esta registrado.')
+          break
+        case 'auth/wrong-password':
+          alert('Contrasena es incorrecta.')
+          break
+        default:
+          alert('Ocurrio un error.')
+          break
+      }
     }
   },
 }

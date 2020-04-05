@@ -113,7 +113,6 @@
 <script>
 import { required, email, minLength, maxLength, } from 'vuelidate/lib/validators'
 import { nombreCompleto } from '@/utils/validate'
-import { auth } from '@/firebase'
 
 export default {
   data() {

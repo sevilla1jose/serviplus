@@ -74,7 +74,6 @@
 
 <script>
 import { required, email, } from 'vuelidate/lib/validators'
-import { auth } from '@/firebase'
 
 export default {
   data() {

@@ -27,7 +27,8 @@ const routes = [
         redirect: '/app/account/profile',
         children: [
           { path: 'profile', component: () => import('@/views/app/account/Default') },
-          { path: 'setting', component: () => import('@/views/app/account/Default') }
+          { path: 'setting', component: () => import('@/views/app/account/Default') },
+          { path: 'help', component: () => import('@/views/app/account/Default') }
         ]
       }
     ]
